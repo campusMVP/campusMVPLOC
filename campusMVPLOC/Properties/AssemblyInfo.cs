@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LOC")]
-[assembly: AssemblyDescription("Cuenta las líneas de código de los archivos de una carpeta y sus subcarpetas")]
+[assembly: AssemblyTitle("campusMVPLOC")]
+[assembly: AssemblyDescription("Cuenta las líneas de código de los archivos de una carpeta y sus subcarpetas, junto con estadísticas de comentarios, etc...")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LOC")]
+[assembly: AssemblyCompany("campusMVP.es")]
+[assembly: AssemblyProduct("campusMVPLOC")]
 [assembly: AssemblyCopyright("por José Manuel Alarcón  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
