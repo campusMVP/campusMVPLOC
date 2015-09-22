@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+___ __ _ _ __ ___  _ __  _ _ ___ _ __ _____   ___ __   ___ ___
+ / __/ _` | '_ ` _ \| '_ \| | | / __| '_ ` _ \ \ / | '_ \ / _ / __|
+| (_| (_| | | | | | | |_) | |_| \__ | | | | | \ V /| |_) |  __\__ \
+ \___\__,_|_| |_| |_| .__/ \__,_|___|_| |_| |_|\_/ | .__(_\___|___/
+                    |_|                            |_|             
+Utilidad sencilla de línea de comandos para realizar contaje de líneas de código y estadísticas de comentarios.
+http://www.campusmvp.es
+Creado por Josçé Manuel Alarcón (http://jasoft.org)
+Licencia Apache 2.0.
+*/
+using System;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Diagnostics;
@@ -72,7 +83,7 @@ namespace LOC
                             break;
                         case "c":
                             //Si se especifica la expresión regular para buscar comentarios, se añaden a las existentes
-                            tiposComentarioLineales += valParam;
+                            tiposComentarioLineales += ("," + valParam);
                             break;
                         case "x":
                             //Si se quieren excluir carpetas, se añaden a las exclusiones por defecto
@@ -85,6 +96,9 @@ namespace LOC
                         case "s":
                             modoSilencioso = true;
                             break;
+                        case "?":
+                            MuestraAyuda();
+                            return;
                     }
                 }
             }
@@ -135,10 +149,10 @@ namespace LOC
         {
             Console.WriteLine(@"Cuenta las líneas de código de los archivos de una carpeta. Debemos identificar los tipos de archivo a tener en cuenta y, 
 opcionalmente, una expresión regular para buscar comentarios.");
-            Console.WriteLine("\nUso: LOC.exe carpeta_inicial -f:[tipos,archivo,separados,por,comas] -c:[RegExp para comentarios] -x:[RegExp para carpetas y archivos a excluir, separados por comas] -b -v");
-            Console.WriteLine("\nEj: LOC.exe c:\\MiPrograma");
-            Console.WriteLine("\nEj: LOC.exe c:\\MiPrograma -f:*.js,*.aspx");
-            Console.WriteLine("\nEj: LOC.exe c:\\MiPrograma -f:*.vbs, -c:'.* /x:^Privado_.*$ que buscaría comentarios de VBScript (empiezan por un apóstrofe) además de los comunes en archivo .vbs y excluyendo las carpetas que se llamen Privado_XXXX.\nSe puede usar / o . para los parámetros opcionales.");
+            Console.WriteLine("\nUso: campusMVPLOC.exe carpeta_inicial -f:[tipos,archivo,separados,por,comas] -c:[RegExp para comentarios] -x:[RegExp para carpetas a excluir, separados por comas] -b -v");
+            Console.WriteLine("\nEj: campusMVPLOC.exe c:\\MiPrograma");
+            Console.WriteLine("\nEj: campusMVPLOC.exe c:\\MiPrograma -f:*.js,*.aspx");
+            Console.WriteLine("\nEj: campusMVPLOC.exe c:\\MiPrograma -f:*.vbs, -c:'.* /x:^Privado_.*$ que buscaría comentarios de VBScript (empiezan por un apóstrofe) además de los comunes en archivo .vbs y excluyendo las carpetas que se llamen Privado_XXXX.\nSe puede usar / o . para los parámetros opcionales.");
             Console.WriteLine("\nPor defecto busca comentarios de tipo // y /* */ que son los habituales en casi todos los lenguajes, así como los comentarios con apóstrofe típicos de Visual Basic.");
             Console.WriteLine("\nSi no se especifican los tipos de archivo se usarán {0}.", extensiones);
             Console.WriteLine("\nSi se especifica el parámetro /b o -b se usará el modo 'batch' de forma que no se detendrá la ejecución para mostrar resultados por pantalla. Útil para guardar resultados a disco en una tarea desatendida.");
