@@ -104,5 +104,5 @@ Este programa tiene:
 - Líneas de Código ejecutables (LOC): 225
 - Líneas en blanco (BLOC): 40
 - Lineas comentadas (CLOC): 94
-- Líneas totales (): 359
+- Líneas totales (TLOC): 359
 - Ratio Comentarios/Codigo: 0,42/1
