@@ -1,8 +1,6 @@
 # campusMVPLOC
 Contador de líneas de código con estadísticas para Windows, de [**campusMVP**](http://www.campusmvp.es).
 
-
-
 ## Líneas de código como medida del tamaño de un software
 
 El **número de líneas de código o LOC** (de *Lines Of Code* en inglés) son una métrica estándar que se utiliza para determinar **el tamaño de un desarrollo informático**  y también en cierta medida dan una idea **del esfuerzo que se ha necesitado** para crearlo. 
@@ -33,6 +31,8 @@ campusMVPLOC "carpeta-de-Codigo" [/f:tipos-archivo] [/c:regEx comentarios] [/x:r
 Este es el tipo de resultados que muestra:
 
 ![campusMVPLOC](campusmvpLOC.png)
+
+Para realizar el contaje utiliza una única pasada por los archivos de código por lo que es bastante eficiente y rápido.
 
 ##Parámetros de uso
 Los parámetros que admite el programa son los siguientes y se pueden especificar con "/" o con "-" indistintamente:
@@ -98,3 +98,11 @@ campusmvpLOC.exe "D:\Codigo\MiApp" -s -b
 La solución está creada con Visual Studio 2015 Community Edition (gratuita) y la .NET Framework 4.6.
 
 [Licencia Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Este programa tiene:
+
+- Líneas de Código ejecutables (LOC): 225
+- Líneas en blanco (BLOC): 40
+- Lineas comentadas (CLOC): 94
+- Líneas totales (): 359
+- Ratio Comentarios/Codigo: 0,42/1
