@@ -131,7 +131,7 @@ namespace LOC
 
             //Se muestran los resultados en rojo
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("RESULTADOS: Num Carpetas: {0:N0}\nNum archivos: {1:N0}\nLíneas de Código ejecutables (LOC): {2:N0}\nLíneas en blanco (BLOC): {3:N0}\nLineas comentadas (CLOC): {4:N0}\nLíneas totales (): {5:N0}\nRatio Comentarios/Codigo: {6:F2}/1\nTiempo total empleado en el análisis: {7:N0}ms", numCarpetas, numArchivos, numLineas, numBlancas, numComentarios, numLineas + numBlancas + numComentarios, ((double)numComentarios / numLineas), crono.ElapsedMilliseconds);
+            Console.WriteLine("RESULTADOS: Num Carpetas: {0:N0}\nNum archivos: {1:N0}\nLíneas de Código ejecutables (LOC): {2:N0}\nLíneas en blanco (BLOC): {3:N0}\nLineas comentadas (CLOC): {4:N0}\nLíneas totales (TLOC): {5:N0}\nRatio Comentarios/Codigo: {6:F2}/1\nTiempo total empleado en el análisis: {7:N0}ms", numCarpetas, numArchivos, numLineas, numBlancas, numComentarios, numLineas + numBlancas + numComentarios, ((double)numComentarios / numLineas), crono.ElapsedMilliseconds);
             Console.ResetColor();
 
             log("////// Final del procesamiento");
