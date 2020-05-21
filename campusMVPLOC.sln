@@ -1,4 +1,134 @@
-﻿
+﻿package BD;
+import Presentacion.frmLogin;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
+public class MetodosDao {
+
+    ConexionBD cnx = new ConexionBD();
+
+    public int validarUsuario(String usuario) {
+
+        int resultado = 0;
+
+        String SSQL = "SELECT * FROM master WHERE usuario='" + usuario + "'";
+        Connection conect = null;
+
+        try {
+            System.out.println("usuario: " + usuario);
+
+            conect = cnx.conectar();
+            Statement st = conect.createStatement();
+            ResultSet rs = st.executeQuery(SSQL);
+
+            if (rs.next()) {
+
+                resultado = 1;
+
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, ex, "Error de conexión", JOptionPane.ERROR_MESSAGE);
+
+        } finally {
+
+            try {
+                
+                conect.close();
+                
+            } catch (SQLException ex) {
+
+                JOptionPane.showMessageDialog(null, ex, "Error de desconexión", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        }
+
+        return resultado;
+
+    }
+
+
+
+    public int validarIngreso(String usuario, String clave) {
+
+        int resultado = 0;
+
+        String SSQL = "SELECT * FROM master WHERE usuario='" + usuario + "' AND clave='" + clave + "'";
+        Connection conect = null;
+
+        try {
+            System.out.println("usuario: " + usuario);
+            System.out.println("clave: " + clave);
+            conect = cnx.conectar();
+            Statement st = conect.createStatement();
+            ResultSet rs = st.executeQuery(SSQL);
+
+            if (rs.next()) {
+
+                resultado = 1;
+
+            }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, ex, "Error de conexión", JOptionPane.ERROR_MESSAGE);
+
+        } finally {
+
+            try {
+
+                conect.close();
+
+            } catch (SQLException ex) {
+
+                JOptionPane.showMessageDialog(null, ex, "Error de desconexión", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        }
+
+        return resultado;
+
+    }
+
+    public int validarCodigo(String codigo, String centrodeatencion) {
+        
+        int resultado = 0;
+        String SSQL = "SELECT * FROM usuario WHERE codigo='" + codigo + "' AND segmento_codigo='" + segmento + "'";
+        Connection conect = null;
+        try {
+            System.out.println("usuario: " + codigo);
+            conect = cnx.conectar();
+            Statement st = conect.createStatement();
+            ResultSet rs = st.executeQuery(SSQL);
+            if (rs.next()) {
+                resultado = 1;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex, "Error de conexión", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            try {
+                conect.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex, "Error de desconexión", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
+        return resultado;
+    }
+
+}
+
+
+import com.digitalpersona.onetouch.DPFPDataPurpose; import com.digitalpersona.onetouch.DPFPFeatureSet; import com.digitalpersona.onetouch.DPFPGlobal; import com.digitalpersona.onetouch.DPFPSample; import com.digitalpersona.onetouch.DPFPTemplate; import com.digitalpersona.onetouch.capture.DPFPCapture; import com.digitalpersona.onetouch.capture.event.DPFPDataAdapter; import com.digitalpersona.onetouch.capture.event.DPFPDataEvent; import com.digitalpersona.onetouch.capture.event.DPFPErrorAdapter; import com.digitalpersona.onetouch.capture.event.DPFPErrorEvent; import com.digitalpersona.onetouch.capture.event.DPFPReaderStatusAdapter; import com.digitalpersona.onetouch.capture.event.DPFPReaderStatusEvent; import com.digitalpersona.onetouch.capture.event.DPFPSensorAdapter; import com.digitalpersona.onetouch.capture.event.DPFPSensorEvent; import com.digitalpersona.onetouch.processing.DPFPEnrollment; import com.digitalpersona.onetouch.processing.DPFPFeatureExtraction; import com.digitalpersona.onetouch.processing.DPFPImageQualityException; import com.digitalpersona.onetouch.verification.DPFPVerification; import java.awt.Image; import javax.swing.ImageIcon; import javax.swing.JOptionPane; import javax.swing.SwingUtilities; import javax.swing.UIManager; import java.io.ByteArrayInputStream; import java.sql.Connection; import java.sql.PreparedStatement; import java.sql.SQLException;
+
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
